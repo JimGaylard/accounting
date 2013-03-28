@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.version       = Accounting::VERSION
   gem.authors       = ["Jim Gaylard"]
   gem.email         = ["jgaylard75@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{A simple double entry accounting system, either standalone or within a rails app}
+  gem.summary       = %q{A simple double entry accounting system}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)
