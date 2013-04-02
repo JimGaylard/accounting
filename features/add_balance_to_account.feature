@@ -9,17 +9,17 @@ Feature: debit or credit an amount to an account
   Scenario Outline: debit an expense account
     Given a/an "<account_type>" account
     When I "<trans_type>" the account with $50
-    Then I should see a balance of "<new_balance>"
+    Then I should see a balance of <new_balance>
 
     Scenarios: debits / credits
-      | account_type | trans_type | new_balance |
-      | :asset       | :debit     | 50          |
-      | :asset       | :credit    | -50         |
-      | :liability   | :debit     | -50         |
-      | :liability   | :credit    | 50          |
-      | :equity      | :debit     | -50         |
-      | :equity      | :credit    | 50          |
-      | :revenue     | :debit     | -50         |
-      | :revenue     | :credit    | 50          |
-      | :expense     | :debit     | 50          |
-      | :expense     | :credit    | -50         |
+      | account_type | trans_type | new_balance   |
+      |  asset       |  debit     | 50.0          |
+      |  asset       |  credit    | -50.0         |
+      |  liability   |  debit     | -50.0         |
+      |  liability   |  credit    | 50.0          |
+      |  equity      |  debit     | -50.0         |
+      |  equity      |  credit    | 50.0          |
+      |  revenue     |  debit     | -50.0         |
+      |  revenue     |  credit    | 50.0          |
+      |  expense     |  debit     | 50.0          |
+      |  expense     |  credit    | -50.0         |
