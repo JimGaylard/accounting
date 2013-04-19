@@ -3,9 +3,9 @@ module Accounting
   class Transaction
     attr_accessor :entries
 
-    def initialize(entries={})
-      @entries = entries
-    end
+    #def initialize(entries={})
+    #  @entries = entries
+    #end
 
     def save
       debits = 0

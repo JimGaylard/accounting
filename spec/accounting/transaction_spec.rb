@@ -2,11 +2,13 @@ require 'spec_helper'
 
 module Accounting
   describe Transaction do
-    it "should update account balances if it is balanced" do
-      sales = Account.new(:revenue)
-      debtors = Account.new(:asset)
-      gst = Account.new(:liability)
+    before_each do
+      @sales = Account.new(:revenue)
+      @debtors = Account.new(:asset)
+      @gst = Account.new(:liability)
+    end
 
+    it "should update account balances if it is balanced" do
       trans = Transaction.new
       trans.entries = {
         sales =>  [:credit, 220.00],
@@ -15,9 +17,13 @@ module Accounting
       }
 
       trans.save
-      sales.balance.should == 220.00
-      debtors.balance.should == 200.00
-      gst.balance.should == -20.00
+      @sales.balance.should == 220.00
+      @debtors.balance.should == 200.00
+      @gst.balance.should == -20.00
+    end
+
+    it "should accept the transaction entries as an argument" do
+      pending
     end
   end
 end
