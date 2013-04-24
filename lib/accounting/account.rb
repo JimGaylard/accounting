@@ -9,26 +9,22 @@ module Accounting
     end
 
     def debit(amount)
-      case @account_type
-      when :asset, :expense
-        self.balance += amount
-      when :liability, :equity, :revenue
-        self.balance -= amount
-      else
-        self.balance = 1
-      end
+      correct_treatment_for_acccount(amount)
     end
 
     def credit(amount)
-      case @account_type
-      when :asset, :expense
-        self.balance -= amount
-      when :liability, :equity, :revenue
-        self.balance += amount
-      else
-        self.balance = 1
-      end
+      correct_treatment_for_acccount(-amount)
     end
 
+    def correct_treatment_for_acccount(amount)
+      case @account_type
+      when :asset, :expense
+        self.balance += amount
+      when :liability, :equity, :revenue
+        self.balance -= amount
+      else
+        raise "IncorrectAccountType!"
+      end
+    end
   end
 end
