@@ -7,8 +7,10 @@ Feature: debit or credit an amount to an account
   depending on the rules for that account_type
 
   Scenario Outline: debit an expense account
-    Given a/an <account_type> account
-    When I <trans_type> the account with $50
+    Given I have created an account of type <account_type>
+    And I enter "new Transaction"
+    When I enter "<trans_type>"
+    And I enter "50"
     Then I should see a balance of <new_balance>
 
     Scenarios: debits / credits
