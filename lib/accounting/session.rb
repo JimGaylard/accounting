@@ -6,7 +6,6 @@ module Accounting
     def start
       @output.puts "Welcome to Accounting"
       @output.puts "Enter command or type help >>"
-
     end
   end
 end
