@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+require 'accounting'
+
+session = Accounting::Session.new(STDOUT)
+session.start
+
+while command = gets.chomp
+  session.execute(command)
+end
