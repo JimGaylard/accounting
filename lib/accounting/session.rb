@@ -10,7 +10,7 @@ module Accounting
 
     def execute(command)
       if command == "new Account"
-        @output.puts "Please enter new Account Name"
+        @output.puts "Enter the new Account name: "
       end
     end
   end
