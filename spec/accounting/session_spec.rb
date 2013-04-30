@@ -22,6 +22,13 @@ module Accounting
         output.should_receive(:puts).with("Enter the new Account name: ")
         session.execute("new Account")
       end
+
+      it "creates a new account" do
+        session.execute("new Account")
+        session.execute("Debtors")
+        session.execute("asset")
+        Account.count.should_increase_by(1)
+      end
     end
   end
 end

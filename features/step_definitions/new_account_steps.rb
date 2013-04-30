@@ -7,10 +7,11 @@ end
 
 Given(/^I am at the "(.*?)" prompt$/) do |prompt|
   step "I start a new session"
+  enter "new Account"
 end
 
 When(/^I enter "(.*?)"$/) do |command|
-  @session.execute(command)
+  enter command
 end
 
 Then(/^I should see a balance of (-*\d+\.\d\d)$/) do |new_balance|

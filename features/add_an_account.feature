@@ -1,3 +1,4 @@
+@wip
 Feature: Accounts clerk adds a new account
   As an accounts clerk (AC)
   I want to create accounts
@@ -7,7 +8,7 @@ Feature: Accounts clerk adds a new account
   Scenario: An AC tries to create a new account
     Given I start a new session
     When I enter "new Account"
-    Then I should see "Please enter new Account Name"
+    Then I should see "Enter the new Account name: "
 
   Scenario: An AC creates a correct account
     Given I am at the "New Account" prompt
