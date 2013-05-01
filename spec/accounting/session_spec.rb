@@ -18,12 +18,13 @@ module Accounting
     end
 
     describe "#execute" do
-      it "performs the given command" do
-        output.should_receive(:puts).with("Enter the new Account name: ")
-        session.execute("new Account")
+      it "takes a verb and a noun - action, object" do
+        command = "new account"
+        session.execute(command)
       end
 
       it "creates a new account" do
+        pending
         session.execute("new Account")
         session.execute("Debtors")
         session.execute("asset")
