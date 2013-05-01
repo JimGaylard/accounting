@@ -9,9 +9,7 @@ module Accounting
     end
 
     def execute(command)
-      if command == "new Account"
-        @output.puts "Enter the new Account name: "
-      end
+      #@action, @object = command.split
     end
   end
 end
