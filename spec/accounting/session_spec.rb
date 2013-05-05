@@ -20,6 +20,7 @@ module Accounting
     describe "#execute" do
       it "takes a verb and a noun - action, object" do
         command = "new account"
+        session.execute(command)
       end
 
       it "creates a new account" do
