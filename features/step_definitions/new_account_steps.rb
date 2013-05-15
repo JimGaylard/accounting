@@ -19,5 +19,5 @@ Then(/^I should see a balance of (-*\d+\.\d\d)$/) do |new_balance|
 end
 
 def enter(command)
-  @session.execute(command)
+  STDIN
 end
