@@ -3,7 +3,7 @@
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'accounting'
 
-session = Accounting::CLI.new(STDOUT)
+session = Accounting::Session.new(STDOUT)
 session.start
 
 while command = gets.chomp
