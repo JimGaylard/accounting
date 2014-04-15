@@ -1,29 +1,56 @@
 module Accounting
   class Account
-    attr_accessor :account_type, :balance
+    attr_accessor :balance
 
-    def initialize(account_type, balance = 0)
-      @account_type = account_type
+    def initialize(balance)
       @balance = balance
     end
 
     def debit(amount)
-      correct_treatment_for_acccount(amount)
+      raise "NotImplementedError"
     end
 
     def credit(amount)
-      correct_treatment_for_acccount(-amount)
+      raise "NotImplementedError"
     end
 
-    def correct_treatment_for_acccount(amount)
-      case @account_type
-      when :asset, :expense
-        self.balance += amount
-      when :liability, :equity, :revenue
-        self.balance -= amount
-      else
-        raise "IncorrectAccountType!"
-      end
+    #def correct_treatment_for_acccount(amount)
+    #  case @account_type
+    #  when :asset, :expense
+    #    self.balance += amount
+    #  when :liability, :equity, :revenue
+    #    self.balance -= amount
+    #  else
+    #    raise "IncorrectAccountType!"
+    #  end
+    #end
+  end
+
+  class DebitAccount < Account
+    def initialize(balance: 0)
+      super(balance)
+    end
+
+    def debit amount
+      @balance += amount
+    end
+
+    def credit amount
+      @balance -= amount
+    end
+  end
+
+  class CreditAccount < Account
+    def initialize(balance: 0)
+      super(balance)
+    end
+
+    def debit amount
+      @balance -= amount
+    end
+
+    def credit amount
+      @balance += amount
     end
   end
 end
