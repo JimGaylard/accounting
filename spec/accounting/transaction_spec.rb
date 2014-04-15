@@ -2,9 +2,9 @@ require 'spec_helper'
 
 module Accounting
   describe Transaction do
-    let(:sales) {Account.new(:revenue)}
-    let(:debtors) {Account.new(:asset)}
-    let(:gst) {Account.new(:liability)}
+    let(:sales) { CreditAccount.new }
+    let(:debtors) { DebitAccount.new }
+    let(:gst) { CreditAccount.new }
 
     it "should update account balances if it is balanced" do
       trans = Transaction.new
